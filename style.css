@@ -1,0 +1,165 @@
+:root {
+  --ff-playfair: 'Playfair Display', serif;
+  --ff-roboto: 'Roboto', sans-serif;
+
+  --bg-home: hsl(258, 86%, 34%);
+  --text-primary: hsl(0, 0%, 89%);
+  --accent-color: hsl(40, 97%, 64%);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* ========== Home ========== */
+
+#home {
+  background-color: var(--bg-home);
+}
+
+.home-container {
+  width: min(100% - 2rem, 1200px);
+  min-height: 100dvh;
+  margin-inline: auto;
+  font-family: var(--ff-playfair);
+}
+
+/* ========== Header ========== */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+}
+
+header .logo {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid var(--text-primary);
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+header .logo::after {
+  content: '.';
+  position: absolute;
+  bottom: -13px;
+  right: -15px;
+  font-size: 2rem;
+}
+
+/* ========== Nav ========== */
+.nav-list {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: var(--text-primary);
+  left: 0;
+  bottom: -8px;
+  transition: width 200ms ease-in-out;
+}
+
+.nav-item a:hover::after {
+  width: 100%;
+}
+
+/* ========== main ========== */
+main {
+  max-width: 600px;
+  margin-inline: auto;
+  margin-top: 5rem;
+  color: var(--text-primary);
+}
+
+main .greeting {
+  font-size: 5rem;
+}
+
+main .about-me {
+  font-weight: 400;
+  font-size: 1.4rem;
+}
