@@ -15,19 +15,19 @@ gsap.from('.greeting span', {
 // Additional animation for the about-me section
 gsap.from('.about-me', {
   opacity: 0,
-  x: 100, // Move 100 pixels down (adjust as needed)
+  y: 100, // Move 100 pixels down (adjust as needed)
   duration: 1.3, // Animation duration in seconds
   ease: 'power2.inOut', // Easing function
   delay: 1, // Delay the animation for a stagger effect
 });
 
 // GSAP animation for the title
-gsap.from('.title', {
+gsap.from('.skills-title', {
   opacity: 0,
-  y: -50,
+  y: -20,
   duration: 1,
   scrollTrigger: {
-    trigger: '.title',
+    trigger: '.skills-title',
     start: 'top 80%', // Adjust the start position as needed
     end: 'bottom 20%', // Adjust the end position as needed
     scrub: 1, // Smoothly animate the position during the scroll
@@ -48,6 +48,40 @@ gsap.from('.technology-logos img', {
   },
 });
 
+// =====================================================
+// Wait for the DOM to be ready
+document.addEventListener('DOMContentLoaded', function () {
+  // Set up animation for the main projects title
+  gsap.from('.projects-title', {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    scrollTrigger: {
+      trigger: '.projects-title',
+      start: 'top 80%', // Adjust as needed
+      end: 'bottom 20%', // Adjust as needed
+      toggleActions: 'play none none reverse',
+    },
+  });
+
+  // Set up animations for project cards
+  gsap.utils.toArray('.project-card').forEach((card, index) => {
+    gsap.from(card, {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 80%', // Adjust as needed
+        end: 'bottom 20%', // Adjust as needed
+        toggleActions: 'play none none reverse',
+      },
+    });
+  });
+});
+
+// =====================================================
+
 // lenis for smooth scroll
 const lenis = new Lenis();
 
@@ -64,17 +98,20 @@ gsap.ticker.add((time) => {
 gsap.ticker.lagSmoothing(0);
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Select the "Skills" navigation link
-  const skillsLink = document.querySelector('a[href="#skills"]');
+  // Select all navigation links
+  const navLinks = document.querySelectorAll('nav a');
 
-  // Add a click event listener to the "Skills" link
-  skillsLink.addEventListener('click', function (event) {
-    event.preventDefault();
+  // Add a click event listener to each navigation link
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
 
-    // Get the target element (Skills section)
-    const skillsSection = document.getElementById('skills');
+      // Get the target element based on the link's href
+      const targetId = link.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
 
-    // Scroll to the target element smoothly
-    skillsSection.scrollIntoView({ behavior: 'smooth' });
+      // Scroll to the target element smoothly
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    });
   });
 });

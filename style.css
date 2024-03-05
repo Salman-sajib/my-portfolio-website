@@ -3,6 +3,7 @@
   --ff-roboto: 'Roboto', sans-serif;
 
   --bg-home: hsl(258, 86%, 34%);
+  --bg-skills: hsl(263, 87%, 35%);
   --text-primary: hsl(0, 0%, 89%);
   --accent-color: hsl(40, 97%, 64%);
 
@@ -168,7 +169,7 @@ main .about-me {
 
 /* ========== skills ========== */
 #skills {
-  background-color: var(--text-primary);
+  background-color: var(--bg-skills);
   width: 100%;
   min-height: 100dvh;
 
@@ -183,12 +184,11 @@ main .about-me {
   font-family: var(--ff-playfair);
 }
 
-.skills-container .title {
-  color: rgb(52, 52, 52);
+.skills-title {
+  color: var(--text-primary);
   font-size: 3rem;
   font-weight: 600;
   text-align: center;
-  position: relative;
 }
 
 .technology-logos {
@@ -204,4 +204,88 @@ main .about-me {
 
 .technology-logos img {
   width: 100px;
+}
+
+/* ========== projects ========== */
+#projects {
+  background-color: var(--bg-home);
+  color: var(--text-primary);
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-playfair);
+}
+
+.projects-container {
+  width: var(--width-min);
+  margin-inline: auto;
+}
+
+.projects-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.projects-all {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 300px;
+  height: 150px;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-lists {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+
+.project-lists li {
+  list-style: none;
+}
+
+.project-lists li a {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: 600;
+  position: relative;
+}
+
+.project-lists li a::after {
+  content: '';
+  position: absolute;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  transition: width 250ms ease-in-out;
+}
+
+.project-lists li a:hover::after {
+  width: 100%;
 }
