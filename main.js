@@ -123,15 +123,15 @@ const closeSidebar = document.querySelector('.close-sidebar');
 const sidebarNavItem = document.querySelectorAll('.sidebar .nav-item');
 
 burgerMenu.addEventListener('click', () => {
-  sidebar.style.display = 'flex';
+  sidebar.classList.add('active');
 });
 
 closeSidebar.addEventListener('click', () => {
-  sidebar.style.display = 'none';
+  sidebar.classList.remove('active');
 });
 
 sidebarNavItem.forEach((item) => {
   item.addEventListener('click', () => {
-    sidebar.style.display = 'none';
+    sidebar.classList.remove('active');
   });
 });

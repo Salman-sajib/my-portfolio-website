@@ -159,16 +159,24 @@ header .logo::after {
   z-index: 999;
   background-color: hsl(0 0% 0% / 0.3);
   backdrop-filter: blur(1rem);
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: flex-start;
   justify-content: flex-start;
   padding-top: 1rem;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 }
 
-.sidebar .nav-item {
-  font-size: 1.4rem;
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar .nav-item a {
+  font-size: 1.2rem;
+  color: var(--accent-color);
 }
 
 .nav-list .burger-menu {
@@ -184,21 +192,36 @@ header .logo::after {
 
 .close-sidebar {
   background-color: transparent;
-  border: 0;
+  border: 2px solid var(--accent-color);
+  border-radius: 0.3em;
+  padding: 0;
   cursor: pointer;
+  align-self: self-start;
 }
 
 .close-sidebar path {
   fill: var(--text-primary);
 }
 
-@media (max-width: 40em) {
+@media (max-width: 46em) {
   .hideOnMobile {
     display: none;
   }
 
   .nav-list .burger-menu {
     display: block;
+  }
+}
+
+@media (max-width: 29em) {
+  .sidebar {
+    width: 100%;
+    align-items: center;
+    padding-inline: 0;
+  }
+
+  .close-sidebar {
+    margin-left: 1rem;
   }
 }
 
