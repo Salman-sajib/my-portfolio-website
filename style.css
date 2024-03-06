@@ -3,7 +3,7 @@
   --ff-roboto: 'Roboto', sans-serif;
 
   --bg-home: hsl(258, 86%, 34%);
-  --bg-skills: hsl(263, 87%, 35%);
+  --bg-skills: hsl(258, 86%, 30%);
   --text-primary: hsl(0, 0%, 89%);
   --accent-color: hsl(40, 97%, 64%);
 
@@ -288,4 +288,48 @@ main .about-me {
 
 .project-lists li a:hover::after {
   width: 100%;
+}
+
+/* ========== contact ========== */
+#contact {
+  width: 100%;
+  background-color: var(--bg-skills);
+  padding-block: 3rem;
+  font-family: var(--ff-playfair);
+  text-align: center;
+}
+
+.contact-container {
+  width: var(--width-min);
+  margin-inline: auto;
+}
+
+.contact-title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.contact-info {
+  max-width: 450px;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-info .email {
+  color: var(--accent-color);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social a i {
+  color: var(--accent-color);
+  font-size: 2rem;
 }

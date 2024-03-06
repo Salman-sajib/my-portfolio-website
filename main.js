@@ -48,7 +48,7 @@ gsap.from('.technology-logos img', {
   },
 });
 
-// =====================================================
+// animate projects
 // Wait for the DOM to be ready
 document.addEventListener('DOMContentLoaded', function () {
   // Set up animation for the main projects title
@@ -80,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// =====================================================
-
 // lenis for smooth scroll
 const lenis = new Lenis();
 
@@ -97,6 +95,7 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 
+// for smoothly jump to the element when clicked on the link
 document.addEventListener('DOMContentLoaded', function () {
   // Select all navigation links
   const navLinks = document.querySelectorAll('nav a');
