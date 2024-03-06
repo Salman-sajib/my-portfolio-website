@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const lenis = new Lenis();
 
 lenis.on('scroll', (e) => {
-  console.log(e);
+  // console.log(e);
 });
 
 lenis.on('scroll', ScrollTrigger.update);
@@ -112,5 +112,26 @@ document.addEventListener('DOMContentLoaded', function () {
       // Scroll to the target element smoothly
       targetElement.scrollIntoView({ behavior: 'smooth' });
     });
+  });
+});
+
+// added the functionality for the nav on small screen
+
+const sidebar = document.querySelector('.sidebar');
+const burgerMenu = document.querySelector('.burger-menu');
+const closeSidebar = document.querySelector('.close-sidebar');
+const sidebarNavItem = document.querySelectorAll('.sidebar .nav-item');
+
+burgerMenu.addEventListener('click', () => {
+  sidebar.style.display = 'flex';
+});
+
+closeSidebar.addEventListener('click', () => {
+  sidebar.style.display = 'none';
+});
+
+sidebarNavItem.forEach((item) => {
+  item.addEventListener('click', () => {
+    sidebar.style.display = 'none';
   });
 });
